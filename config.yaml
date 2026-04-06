@@ -1,0 +1,8 @@
+run_prompt_tests: true
+generate_report: true
+model: mock   # options: mock / openai
+
+test_types:
+  - basic
+  - adversarial
+  - edge
