@@ -1,5 +1,6 @@
 from rag.retriever import retrieve_docs
 from rag.generator import generate_response
+from evaluation.evaluator import evaluate_all
 
 def main():
     print("🚀 Starting pipeline...")
@@ -8,13 +9,21 @@ def main():
 
     print("🔍 Retrieving context...")
     context = retrieve_docs(query)
-    print("Context:", context)
 
     print("🤖 Generating response...")
     response = generate_response(query, context)
 
     print("\n=== RESPONSE ===")
     print(response)
+
+    print("\n📊 Evaluating response...")
+    result = evaluate_all(query, context, response)
+
+    print("\n=== EVALUATION ===")
+    print(result["scores"])
+
+    print("\n=== FINAL VERDICT ===")
+    print(result["verdict"])
 
 if __name__ == "__main__":
     main()
