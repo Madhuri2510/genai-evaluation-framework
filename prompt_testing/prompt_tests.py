@@ -1,6 +1,7 @@
 from rag.retriever import retrieve_docs
 from rag.generator import generate_response
 from evaluation.evaluator import evaluate_all
+from reports.report_generator import generate_html_report
 
 
 def run_prompt_tests():
@@ -33,6 +34,12 @@ def run_prompt_tests():
 
         print("Response:", response)
         print("Evaluation:", evaluation)
+        
+    report_file = generate_html_report(results)
+
+    print("\n📄 Report generated at:", report_file)
+
+    return results
 
     return results
 
