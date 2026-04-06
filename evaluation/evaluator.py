@@ -37,11 +37,13 @@ def evaluate_all(query, context, response):
     relevance = calculate_relevance(query, response)
     faithfulness = calculate_faithfulness(context, response)
     hallucination = detect_hallucination(context, response)
+    injection = detect_prompt_injection(query)
 
     scores = {
         "relevance": relevance,
         "faithfulness": faithfulness,
-        "hallucination": hallucination
+        "hallucination": hallucination,
+        "prompt_injection": injection
     }
 
     verdict = final_verdict(scores)
@@ -52,7 +54,9 @@ def evaluate_all(query, context, response):
     }
     
 def final_verdict(scores):
-    if scores["hallucination"]:
+    if scores.get("prompt_injection"):
+        return "❌ FAIL: Prompt Injection Detected"
+    elif scores["hallucination"]:
         return "❌ FAIL: Hallucination detected"
     elif scores["faithfulness"] < 0.5:
         return "⚠️ WARNING: Low faithfulness"
@@ -60,3 +64,17 @@ def final_verdict(scores):
         return "⚠️ WARNING: Low relevance"
     else:
         return "✅ PASS: Response is reliable"
+    
+
+def detect_prompt_injection(query: str):
+    suspicious_patterns = [
+        "ignore previous instructions",
+        "bypass",
+        "override",
+        "disregard rules",
+        "forget context"
+    ]
+
+    query_lower = query.lower()
+
+    return any(pattern in query_lower for pattern in suspicious_patterns)
