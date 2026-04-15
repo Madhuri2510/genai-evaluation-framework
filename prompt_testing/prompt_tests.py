@@ -2,11 +2,11 @@ from rag.retriever import retrieve_docs
 from rag.generator import generate_response
 from evaluation.evaluator import evaluate_all
 from reports.report_generator import generate_html_report
+from utils.mlflow_logger import log_experiment
 
 
 def run_prompt_tests():
     test_cases = get_test_cases()
-
     results = []
 
     for test in test_cases:
@@ -23,6 +23,9 @@ def run_prompt_tests():
 
         evaluation = evaluate_all(query, context, response)
 
+        # 🔥 ADD THIS LINE
+        log_experiment(query, response, evaluation)
+
         result = {
             "test_name": test["name"],
             "query": query,
@@ -31,15 +34,6 @@ def run_prompt_tests():
         }
 
         results.append(result)
-
-        print("Response:", response)
-        print("Evaluation:", evaluation)
-        
-    report_file = generate_html_report(results)
-
-    print("\n📄 Report generated at:", report_file)
-
-    return results
 
     return results
 

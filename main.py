@@ -2,6 +2,7 @@ import argparse
 
 from prompt_testing.prompt_tests import run_prompt_tests
 from utils.config_loader import load_config
+from utils.mlflow_logger import log_experiment
 
 
 def main():
@@ -34,6 +35,8 @@ def main():
         context = retrieve_docs(query)
         response = generate_response(query, context)
         evaluation = evaluate_all(query, context, response)
+        # 🔥 Log to MLflow
+        log_experiment(query, response, evaluation, config)
 
         print("\nResponse:", response)
         print("\nEvaluation:", evaluation)
