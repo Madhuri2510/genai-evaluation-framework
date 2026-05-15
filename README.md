@@ -1,4 +1,4 @@
-# 🚀 GenAI Evaluation & Testing Framework
+#  GenAI Evaluation & Testing Framework
 
 A production-style framework to evaluate, test, and validate Generative
 AI systems (RAG pipelines, LLM responses, and AI agents) using automated
@@ -6,10 +6,10 @@ metrics, adversarial testing, and structured reporting.
 
 ------------------------------------------------------------------------
 
-## 📌 Problem Statement
+## Problem Statement
 
-Generative AI systems often produce: - ❌ Hallucinated responses - ❌
-Unreliable outputs - ❌ Vulnerability to prompt injection - ❌ Lack of
+Generative AI systems often produce: -  Hallucinated responses - 
+Unreliable outputs -  Vulnerability to prompt injection -  Lack of
 measurable quality metrics
 
 There is a critical need for systematic testing and evaluation
@@ -17,7 +17,7 @@ frameworks to ensure reliability, safety, and performance.
 
 ------------------------------------------------------------------------
 
-## 💡 Solution
+##  Solution
 
 This project provides an end-to-end GenAI testing framework that:
 
@@ -29,7 +29,7 @@ This project provides an end-to-end GenAI testing framework that:
 
 ------------------------------------------------------------------------
 
-## 🧱 Architecture
+## Architecture
 
 User Query → Retriever (FAISS) → Context\
 → Generator (LLM/Mock) → Response\
@@ -39,15 +39,15 @@ User Query → Retriever (FAISS) → Context\
 
 ------------------------------------------------------------------------
 
-## ⚙️ Features
+## Features
 
-### ✅ RAG Pipeline
+###  RAG Pipeline
 
 -   Document ingestion and chunking
 -   FAISS-based vector search
 -   Context-aware response generation
 
-### 📊 Evaluation Engine
+###  Evaluation Engine
 
 -   Relevance scoring
 -   Faithfulness (context grounding)
@@ -55,20 +55,20 @@ User Query → Retriever (FAISS) → Context\
 -   Prompt injection detection
 -   Final verdict classification
 
-### 🧪 Prompt Testing
+###  Prompt Testing
 
 -   Adversarial inputs (prompt injection)
 -   Ambiguous queries
 -   Edge cases (empty, out-of-context)
 -   Batch test execution
 
-### 📄 Reporting
+###  Reporting
 
 -   HTML dashboard (Playwright-style)
 -   Color-coded verdicts (Pass/Fail/Warning)
 -   Timestamped reports for traceability
 
-### ⚙️ CLI + Config Support
+###  CLI + Config Support
 
 -   Run test suite or single query
 -   YAML-based configuration
@@ -76,7 +76,7 @@ User Query → Retriever (FAISS) → Context\
 
 ------------------------------------------------------------------------
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 -   Python
 -   LangChain (modular ecosystem)
@@ -86,7 +86,7 @@ User Query → Retriever (FAISS) → Context\
 
 ------------------------------------------------------------------------
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### 1. Clone the Repository
 
@@ -128,16 +128,16 @@ python main.py --mode single
 
 ------------------------------------------------------------------------
 
-## 📊 Sample Output
+## Sample Output
 
 === EVALUATION === { "relevance": 0.7, "faithfulness": 0.85,
 "hallucination": false, "prompt_injection": false }
 
-=== FINAL VERDICT === ✅ PASS: Response is reliable
+=== FINAL VERDICT ===  PASS: Response is reliable
 
 ------------------------------------------------------------------------
 
-## 📁 Project Structure
+##  Project Structure
 
 genai-evaluation-framework/ │ ├── rag/ ├── evaluation/ ├──
 prompt_testing/ ├── reports/ ├── utils/ ├── data/ ├── config.yaml ├──
@@ -145,7 +145,7 @@ main.py
 
 ------------------------------------------------------------------------
 
-## 🧠 Key Highlights
+##  Key Highlights
 
 -   Modular architecture
 -   Focus on AI quality and safety
@@ -154,7 +154,7 @@ main.py
 
 ------------------------------------------------------------------------
 
-## 🎯 Use Cases
+##  Use Cases
 
 -   RAG system validation\
 -   LLM output quality assessment\
@@ -164,7 +164,7 @@ main.py
 
 ------------------------------------------------------------------------
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 -   RAGAS integration\
 -   Advanced hallucination detection\
@@ -174,13 +174,10 @@ main.py
 
 ------------------------------------------------------------------------
 
-## 👩‍💻 Author
+##  Author
 
 Madhuri Goswami\
 Principal QA Engineer \| GenAI Testing Enthusiast
 
 ------------------------------------------------------------------------
 
-## ⭐ If you found this useful
-
-Give a ⭐ to support the project!
